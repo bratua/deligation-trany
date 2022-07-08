@@ -4,9 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Один из многих элементов (делегирование событий)</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <h1 class="main-header">Один из многих элементов (делегирование событий)</h1>
+    <ul class="btnSettings">
+      <li class="btnSettingsItem">
+        <p>Количество кнопок</p>
+        <input type="number" class="input boxNumber" placeholder="Количество кнопок" />
+      </li>
+      <li class="btnSettingsItem">
+        <p>Размер кнопок</p>
+        <input type="text" class="input boxSize" placeholder="px" />
+      </li>
+      <li class="btnSettingsItem">
+        <p>Скругление кнопок, %</p>
+        <input type="text" class="input boxRadius" placeholder="%" />
+      </li>
+      <li class="btnSettingsItem"><button class="crateButton">Создать кнопки</button></li>
+    </ul>
+
+    <div class="filterItemContainer"></div>
+
     <script src="./js/scrypt.js" type="module"></script>
   </body>
 </html>

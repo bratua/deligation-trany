@@ -1,0 +1,154 @@
+/* Begin of normalize */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  ouline: none;
+}
+
+a:focus,
+a:active {
+  ouline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+/* End of normalize */
+
+.main-header {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.filterItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  padding: 10px;
+
+  outline: 5px solid #000000;
+}
+.filterElement.isActive {
+  transform: scale(1.2);
+  text-transform: uppercase;
+}
+
+.filterElement {
+  /* width: 50px;
+  height: 50px; */
+
+  margin: 10px;
+}
+
+.filterElement {
+  outline: none;
+}
+
+.btnSettings {
+  display: flex;
+  justify-content: center;
+}
+
+.btnSettingsItem {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.input {
+  margin: 20px;
+  font-size: 20px;
+  outline: 3px solid crimson;
+}
+
+.crateButton {
+  width: 100px;
+  height: 70px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: darkgreen;
+}
+
+.crateButton:hover {
+  background-color: rgb(130, 146, 59);
+}
+
+.crateButton:active {
+  background-color: rgb(189, 120, 41);
+}
