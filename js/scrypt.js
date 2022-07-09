@@ -1,11 +1,15 @@
 const filterBox = document.querySelector('.filterItemContainer');
 const createBtn = document.querySelector('.crateButton');
+const clearBtn = document.querySelector('.clearButton');
 const inputBtnNumber = document.querySelector('.boxNumber');
 const inputBtnSize = document.querySelector('.boxSize');
 const inputBtnRadius = document.querySelector('.boxRadius');
-let backColor = '';
+const outHexColorCode = document.querySelector('.outHexColorCode');
+
 filterBox.addEventListener('click', onButtonClick);
 createBtn.addEventListener('click', configFilterElements);
+clearBtn.addEventListener('click', clearFilterEltments);
+let backColor = '';
 
 // filterConfig = {
 //   number: inputBtnNumber.value,
@@ -17,6 +21,16 @@ createBtn.addEventListener('click', configFilterElements);
 // createFilterElements(2, elementSize(80), elementBorderRadius(20), '#999999');
 // createFilterElements(filterConfig);
 
+function clearFilterEltments() {
+  inputBtnNumber.value = 0;
+  inputBtnSize.value = 0;
+  inputBtnRadius.value = 0;
+  filterBox.innerHTML = '';
+  filterBox.style.backgroundColor = '';
+  outHexColorCode.textContent = '0';
+  outHexColorCode.style.color = '';
+}
+
 function configFilterElements() {
   const filterConfig = {
     number: inputBtnNumber.value,
@@ -24,21 +38,23 @@ function configFilterElements() {
     radius: elementBorderRadius(inputBtnRadius.value),
     color: hexRandomColor,
   };
+
   createFilterElements(filterConfig);
-  inputBtnNumber.value = 0;
-  inputBtnSize.value = 0;
-  inputBtnRadius.value = 0;
+
+  //   inputBtnNumber.value = 0;
+  //   inputBtnSize.value = 0;
+  //   inputBtnRadius.value = 0;
 }
 
 function createFilterElements({ number, size, radius, color }) {
   let contentPattern = '';
   for (let i = 1; i <= number; i += 1) {
     const randomColor = color();
-    contentPattern += `<button class="filterElement" data-number="${i}" style="background-color: ${randomColor}; 
+    contentPattern += `<button class="filterElement" data-number="${i}" colorHEX = ${randomColor} style="background-color: ${randomColor}; 
 	 ${size}; ${radius};">Btn №${i}</button>`;
   }
   //   console.log(contentPattern);
-  filterBox.innerHTML = '';
+  //   filterBox.innerHTML = '';
   filterBox.insertAdjacentHTML('beforeend', contentPattern);
 }
 
@@ -61,6 +77,7 @@ function onButtonClick(e) {
   const activeButtonOld = document.querySelector('.isActive');
   const activeButtonNew = e.target;
   const currentColor = e.target.style.backgroundColor;
+  const realButtonColor = e.target.getAttribute('colorhex');
 
   if (!isButton) {
     return;
@@ -79,7 +96,12 @@ function onButtonClick(e) {
 
   backColor = currentColor;
   activeButtonNew.classList.add('isActive');
-  activeButtonNew.style.outline = '3px solid #fafafa';
+  activeButtonNew.style.outline = `3px solid ${hexRandomColor()}`;
+  activeButtonNew.style.backgroundColor = hexRandomColor();
   filterBox.style.backgroundColor = backColor;
-  console.log(`Нажата кнопка №${e.target.dataset.number}, with color #${backColor}`);
+  outHexColorCode.textContent = `hex ${realButtonColor}, ${backColor}`;
+  outHexColorCode.style.color = realButtonColor;
+  console.log(
+    `Нажата кнопка №${e.target.dataset.number}, with color hex ${realButtonColor}, and ${backColor}`,
+  );
 }

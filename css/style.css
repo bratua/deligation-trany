@@ -136,19 +136,35 @@ h6 {
   outline: 3px solid crimson;
 }
 
-.crateButton {
+.crateButton,
+.clearButton {
+  margin-left: 10px;
   width: 100px;
   height: 70px;
   border-radius: 20px;
   color: #ffffff;
   font-size: 20px;
+}
+
+.crateButton {
   background-color: darkgreen;
 }
 
-.crateButton:hover {
+.clearButton {
+  background-color: red;
+}
+
+.crateButton:hover,
+.clearButton:hover {
   background-color: rgb(130, 146, 59);
 }
 
-.crateButton:active {
+.crateButton:active,
+.clearButton:active {
   background-color: rgb(189, 120, 41);
+}
+
+.outHexColorCode {
+  text-align: center;
+  font-size: 120px;
 }
